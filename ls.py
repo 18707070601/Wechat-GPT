@@ -19,13 +19,13 @@ def read_root():
 
 @app.get("/api")
 def read_api(messages: str):
-    openai.api_key = "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"
+    openai.api_key = ""
     messages=messages.replace('@Socor :','')
     response = openai.ChatCompletion.create (
     model="gpt-3.5-turbo-0301", 
     messages=[{"role": "user", "content": messages}]
     #max_tokens=2000
     )
-    res=response['choices'][0]['message']['content'].replace('assistant:','').replace('assistant','').replace('±§Ç¸£¬','').replace('·Ç³£±§Ç¸£¬','').replace('ºÜ±§Ç¸£¬','')
+    res=response['choices'][0]['message']['content'].replace('assistant:','').replace('assistant','').replace('æŠ±æ­‰ï¼Œ','').replace('éå¸¸æŠ±æ­‰ï¼Œ','').replace('å¾ˆæŠ±æ­‰ï¼Œ','')
     return {"text":res}
-###   uvicorn ls:app --reload     ### Æô¶¯·şÎñ
+###   uvicorn ls:app --reload     ### å¯åŠ¨æœåŠ¡
